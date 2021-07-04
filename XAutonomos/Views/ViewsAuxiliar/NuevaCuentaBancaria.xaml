@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XAutonomos.Views.ViewsAuxiliar.NuevaCuentaBancaria"
+             BackgroundImageSource="fondo.png"
+             Title="Cuenta Bancaria">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <ScrollView>
+                <Grid Margin="20,10,20,10" VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0"  >
+                        <Entry x:Name="entryEntidadBancaria" Placeholder="Entidad" ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="1" >
+                        <Entry x:Name="entryNumCuenta" Placeholder="*Número de la cuenta"  ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="2" >
+                        <Entry x:Name="entryIban" Placeholder="IBAN"  ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="3" >
+                        <Entry x:Name="entryBic" Placeholder="BIC"  ></Entry>
+                    </StackLayout>
+
+                </Grid>
+            </ScrollView>
+            <Button x:Name="btnGuardarCuenta" 
+                            Text="Guardar"
+                            TextColor="DarkBlue"
+                            BackgroundColor="#40FFFF"
+                            Clicked="btnGuardarCuenta_Clicked"
+                           />
+        </StackLayout>
+        
+    </ContentPage.Content>
+
+</ContentPage>

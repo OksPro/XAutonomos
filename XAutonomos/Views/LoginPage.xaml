@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImageSource="fondo.png"
+             x:Class="XAutonomos.Views.LoginPage"
+             Title="Autónomos">
+    <ContentPage.Content>
+        <ScrollView>
+          
+            <StackLayout >
+                <Image Source="autonomos.png" BackgroundColor="#7F37E3D2"  WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" Margin="0,40,0,0
+                       ">
+
+                </Image>
+
+                <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+
+                    <StackLayout Grid.Row="0">
+                        <Entry Placeholder="Correo" FontSize="16" x:Name="entryUserEmail" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="1">
+                        <Entry Placeholder="Contraseña" FontSize="16" x:Name="entryUserPasswor" IsPassword="True"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2">
+                        <Button Text="Entrar"  TextColor="DarkBlue" BackgroundColor="#80FFFF" Clicked="Login_Clicked"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3">
+                        <Button Text="Nuevo Usuario"  TextColor="DarkBlue" BackgroundColor="#7F37E3D2" Clicked="NewUser_Clicked" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

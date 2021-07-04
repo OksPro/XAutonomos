@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:XAutonomos.Models"
+             Title="Generar Factura"
+             BackgroundImageSource="fondo.png"
+             x:Class="XAutonomos.Views.GenerarFacturaView">
+
+    <ContentPage.BindingContext>
+        <local:GenerarFacturaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  Margin="20,10,20,10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                <Label x:Name="labelResultado" Text="Selecciona los datos:"  FontSize="Large" TextColor="Black" HorizontalOptions="Center" Padding="20,20,20,20" />
+                <Label Text="Nº Factura:" TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
+                <!--NUMERO de la FACTURA -->
+                <StackLayout x:Name="stackNumFactura" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Fill" Padding="5,5,5,5" >
+                    <!--<Label Text="{Binding NumeroFactura}" TextColor="DarkBlue" FontSize="16"/>-->
+
+                    <Button x:Name="btnInsertarNumero"
+                            Text="Modificar" 
+                            TextColor="DarkBlue"
+                            HeightRequest="24"
+                            Padding="0,0,0,0"
+                            BackgroundColor="#7F37E3D2"
+                            Clicked="btnInsertarNumero_Clicked"
+                            />
+
+                    <Label x:Name="labelNumFactura" Text="{Binding NumeroFactura, Mode=TwoWay}" TextColor="DarkBlue" FontSize="22" WidthRequest="80" HorizontalTextAlignment="Center" Margin="20,0,20,0" />
+                    
+                    <Button x:Name="btnGenerarNumero"
+                            Text="Generar" 
+                            TextColor="DarkBlue"
+                            HeightRequest="24"
+                            Padding="0,0,0,0"
+                            BackgroundColor="#7F37E3D2"
+                            Command="{Binding generarNumFactura}"
+                            />
+                </StackLayout>
+
+                <!--CLIENTES -->
+                <Picker x:Name="pickerCliente"
+                    Title="Selecciona Cliente"
+                    TitleColor="Black"
+                    TextColor="DarkBlue"
+                    FontSize="18"
+                    ItemsSource="{Binding ListaClientes}"
+                    ItemDisplayBinding="{Binding Nombre}"
+                    SelectedItem="{Binding ClienteSeleccionado}"
+                    
+                    />
+
+                <!--IVA IRPF -->
+                <Grid  HorizontalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="IVA: " 
+                               TextColor="Black" FontSize="16"  VerticalTextAlignment="End"
+                               VerticalOptions="Center" Padding="20,0,0,0" />
+
+                    <Picker x:Name="pickerIva"
+                            Grid.Row="0" Grid.Column="1"
+                            ItemsSource="{Binding ListaIva}" 
+                            SelectedItem="{Binding IvaSeleccionado}"
+                            TitleColor="Black"
+                            TextColor="DarkBlue" 
+                            FontSize="18"
+                            VerticalOptions="End"
+                            HorizontalOptions="Center"
+                            />
+                </Grid>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="IRPF: " TextColor="Black" FontSize="16"/>
+                    <Label x:Name="labelIrpf" Text="{Binding Irpf} "  TextColor="DarkBlue" FontSize="16"/>
+                </StackLayout>
+
+                <Slider Minimum="0" Maximum="100"  Value="{Binding Irpf} " />
+
+                <!--SERVICIOS -->
+                <Picker x:Name="pickerServicio"
+                    Title="Selecciona Servicio"
+                    TitleColor="Black"
+                    TextColor="DarkBlue"
+                    FontSize="18"
+                    ItemsSource="{Binding MiListaServicios}"
+                    ItemDisplayBinding="{Binding Descripcion}"
+                    SelectedItem="{Binding MiServicioSeleccionado}"
+                    />
+                <!--CREAR FACTURA -->
+                <Button x:Name="btnGenerarFactura"
+                    Command="{Binding insertarFactura}"
+                    TextColor="DarkBlue"
+                    BackgroundColor="#40FFFF"
+                    Clicked="btnGenerarFactura_Clicked"
+                    Text="Crear Factura"
+                    />
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

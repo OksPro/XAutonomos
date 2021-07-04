@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XAutonomos.ViewModels"
+             x:Name="TodosView"
+             Title="Clientes"
+             BackgroundImageSource="fondo.png"
+             x:Class="XAutonomos.Views.ClienteView">
+
+    <ContentPage.BindingContext> 
+        <viewmodels:ClientesViewModel/> 
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Nuevo" Clicked="AniadirCliente" />
+        <ToolbarItem Text="Refrescar" Clicked="CargarDatos_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <StackLayout Margin="0,0,0,0">
+            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                <ImageButton x:Name="btnAniadirCliente" Source="aniadir_cliente.png"   WidthRequest="50" HeightRequest="50" Clicked="AniadirCliente"/>
+
+                <ImageButton x:Name="CargarDatos" Source="refrescar.png"   WidthRequest="50" HeightRequest="50" Clicked="CargarDatos_Clicked" />
+
+            </StackLayout>-->
+
+
+            <ListView x:Name="listaClientes" 
+                      ItemsSource="{Binding Clientes}"
+                      SelectedItem="{Binding ClienteSeleccionado}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="0" Margin="20,5,20,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="45"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" 
+                                           Text="{Binding Nombre}"
+                                           TextColor="DarkBlue"
+                                           FontSize="24"/>
+                                <Image Grid.Column="1" Source="detalle.png" 
+                                               HorizontalOptions="End">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.DetallesCliente, 
+                                            Source={x:Reference TodosView}}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

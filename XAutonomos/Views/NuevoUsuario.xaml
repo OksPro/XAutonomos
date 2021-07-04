@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImageSource="fondo.png"
+             Title="Nuevo Usuario"
+             x:Class="XAutonomos.Views.NuevoUsuario">
+   
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid Margin="20,10,20,10" VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0"  >
+                <Entry x:Name="entryNomEmpresa" Placeholder="*Nombre de la Empresa"  ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" >
+                <Entry x:Name="entryCif" Placeholder="*CIF/DNI"  ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" >
+                <Entry x:Name="entryCorreo" Placeholder="*Correo" ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" >
+                    <Entry x:Name="entryPassword" Placeholder="*Contraseña" IsPassword="True" ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="4">
+                <Entry x:Name="entryNombre" Placeholder="Nombre" ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="5" >
+                <Entry x:Name="entryApellidos" Placeholder="Apellidos"  ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="6"  >
+                <Entry x:Name="entryDireccion" Placeholder="Dirección" ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="7" >
+                <Entry x:Name="entryCodPostal" Placeholder="Código Postal" ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="8"  >
+                <Entry x:Name="entryLocalidad" Placeholder="Localidad" ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="9" >
+                <Entry x:Name="entryMunicipio" Placeholder="Municipio"   ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="10" >
+                <Entry x:Name="entryTelefono" Placeholder="Teléfono" ></Entry>
+            </StackLayout>
+            <!--
+            <StackLayout Grid.Row="11"  >
+                <Entry x:Name="entryLogo" Placeholder="Logo Empresa"  ></Entry>
+            </StackLayout> -->
+
+            <StackLayout Grid.Row="11" Margin="0,0,0,10">
+                <Button x:Name="btnGuardarUsuario" 
+                            Text="Guardar"
+                            TextColor="DarkBlue"
+                            BackgroundColor="#40FFFF"
+                            Clicked="crearUsuarioNuevo_Clicked"/>
+
+            </StackLayout>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

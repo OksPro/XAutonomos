@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:XAutonomos.ViewModels"
+             x:Class="XAutonomos.Views.FacturasView"
+             Title="Facturas"
+             BackgroundImageSource="fondo.png"
+             x:Name="vistaFacturas">
+    
+    
+    <ContentPage.BindingContext>
+        <local:FacturasViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+
+        <StackLayout Margin="0,0,0,0">
+            
+            <ListView x:Name="listaFacturas" 
+                      ItemsSource="{Binding ListaFacturas}"
+                      SelectedItem="{Binding FacturaSeleccionada}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate >
+                    <DataTemplate >
+                        <ViewCell >
+                            <StackLayout>
+                                <Grid ColumnSpacing="0" Margin="20,5,20,5" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" 
+                                               Text="{Binding Num_Factura}"
+                                               TextColor="Black"
+                                               FontSize="18"/>
+                                    
+                                    <Image Grid.Row="1" Grid.RowSpan="2" Source="factura.png" 
+                                                 
+                                           HorizontalOptions="Start" HeightRequest="50">
+                                        
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer 
+                                                Command="{Binding BindingContext.AbrirFactura,
+                                                Source={x:Reference vistaFacturas}}" 
+                                                                  />
+                                        </Image.GestureRecognizers>
+                                        
+                                    </Image>
+                                    <Label Grid.Column="1" Grid.ColumnSpan="2" 
+                                               Text="{Binding Nombre_Cliente}"
+                                               TextColor="DarkBlue"
+                                               FontSize="22"
+                                               HorizontalOptions="Center"/>
+
+                                    
+                                    <Label Grid.Row="1" Grid.Column="1" 
+                                               Text="total:"
+                                               HorizontalTextAlignment="Center"
+                                               TextColor="Black"
+                                               FontSize="20"/>
+                                    <Label Grid.Row="1" Grid.Column="2" 
+                                               Text="{Binding Total}"
+                                               TextColor="DarkBlue"
+                                               FontSize="20"/>
+                                    
+                                    <Label Grid.Row="2" Grid.Column="1" 
+                                               Text="fecha:"
+                                               TextColor="Black"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="16"/>
+                                    <Label Grid.Row="2" Grid.Column="2" 
+                                               Text="{Binding Fecha}"
+                                               TextColor="DarkBlue"
+                                               FontSize="18"/>
+
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

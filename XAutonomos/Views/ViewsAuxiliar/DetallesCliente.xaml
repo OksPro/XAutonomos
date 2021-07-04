@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImageSource="fondo.png"
+             Title="Detalle Cliente"
+             x:Class="XAutonomos.Views.ViewsAuxiliar.DetallesCliente">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Eliminar" Clicked="seleccionaEliminarCliente" />
+        <ToolbarItem Text="Modificar" Clicked="imbBtnActivarModificar_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        
+            <Grid Margin="5,0,5,0"> 
+                <Grid.RowDefinitions> 
+                     <RowDefinition Height="50"/> 
+                    <RowDefinition Height="50"/> 
+                    <RowDefinition Height="50"/> 
+                    <RowDefinition Height="50"/> 
+                    <RowDefinition Height="50"/> 
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/> 
+                </Grid.RowDefinitions>
+                
+            <StackLayout Grid.Row="0" Orientation="Horizontal"  x:Name="stackCif">
+                <Label Text="Cif:" VerticalOptions="Center" WidthRequest="100" TextColor="DarkBlue"/> 
+                    <Entry x:Name="entryCif"
+                            HorizontalOptions="FillAndExpand" 
+                           Text="{Binding Cliente.Cif}"/> 
+                </StackLayout>
+
+            <StackLayout Grid.Row="1" Orientation="Horizontal" x:Name="stackNombre">
+                <Label Text="Nombre Entidad: " VerticalOptions="Center" WidthRequest="100" TextColor="DarkBlue"/>
+                    <Entry x:Name="entryNombre"
+                        HorizontalOptions="FillAndExpand" 
+                           Text="{Binding Cliente.Nombre}"/> 
+                </StackLayout>
+
+            <StackLayout Grid.Row="2" Orientation="Horizontal" x:Name="stackDireccion">
+                <Label Text="Dirección:" VerticalOptions="Center" WidthRequest="100" TextColor="DarkBlue"/>
+                <Entry  x:Name="entryDireccion"
+                        HorizontalOptions="FillAndExpand" 
+                           Text="{Binding Cliente.Direccion}"/> 
+                </StackLayout>
+
+            <StackLayout Grid.Row="3" Orientation="Horizontal" x:Name="stackCp">
+                <Label Text="Código Postal:" VerticalOptions="Center" WidthRequest="100" TextColor="DarkBlue"/>
+                <Entry x:Name="entryCp"
+                        HorizontalOptions="FillAndExpand" 
+                           Text="{Binding Cliente.Cp}"/> 
+                </StackLayout>
+
+            <StackLayout Grid.Row="4" Orientation="Horizontal" x:Name="stackLocalidad">
+                <Label Text="Localidad: " VerticalOptions="Center" WidthRequest="100" TextColor="DarkBlue"/>
+                <Entry x:Name="entryLocalidad"
+                        HorizontalOptions="FillAndExpand" 
+                           Text="{Binding Cliente.Localidad}"/> 
+                </StackLayout>
+
+            <StackLayout Grid.Row="5" Orientation="Horizontal" x:Name="stackMunicio">
+                <Label Text="Municipio: " VerticalOptions="Center" WidthRequest="100" TextColor="DarkBlue"/>
+                <Entry x:Name="entryMunicipio"
+                        HorizontalOptions="FillAndExpand" 
+                           Text="{Binding Cliente.Municipio}"/>
+                </StackLayout>
+
+
+            <StackLayout Grid.Row="6" Orientation="Vertical">
+                    <Button x:Name="btnGuardarClienteNuevo" 
+                            Clicked="btnGuardarClienteNuevo_ClickedAsync"
+                            Text="Guardar"
+                            TextColor="DarkBlue"
+                            BackgroundColor="#40FFFF" />
+                    
+                    <Button x:Name="btnModificarCliente"
+                            Clicked="guardarModificaciones_Clicked"
+                            Text="Guardar Cambios"
+                            TextColor="DarkBlue"
+                            BackgroundColor="#40FFFF"
+                            /> 
+                    
+                </StackLayout> 
+            </Grid> 
+    </ContentPage.Content> 
+</ContentPage>
